@@ -27,14 +27,14 @@
 		:effect (and (tower_complete ?t))
 	)
 
-	(:action start_install_brick
-		:parameters (?t - tower)
-		:precondition (and 
-			(tower_not_complete ?t)
-			(< (bricks_on_level ?t) 4)
-		)
-		:effect (and 
-			(increase (bricks_on_level ?t) 1)
-		)
-	)
+	; (:action start_install_brick
+	; 	:parameters (?t - tower)
+	; 	:precondition (and 
+	; 		(tower_not_complete ?t)
+	; 		(< (bricks_on_level ?t) 4)
+	; 	)
+	; 	:effect (and 
+	; 		(increase (bricks_on_level ?t) 1)
+	; 	)
+	; )
 )
