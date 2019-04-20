@@ -13,9 +13,6 @@
     )
     (:goal 
         (AND 
-            (ON D C)
-            (ON C A)
-            (ON A B)
             (>= (tower-cost E) 20)
         )
     )
