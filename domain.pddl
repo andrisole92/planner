@@ -1,7 +1,7 @@
 ﻿(define (domain BLOCKS)
   	(:requirements :strips :fluents :typing)
   	(:types
-		tower - object
+		tower agent brick level cone - object
 	)
 	(:predicates 
         (tower_complete ?t - tower)
