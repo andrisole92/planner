@@ -6,7 +6,7 @@
 	(:predicates 
         (tower_complete ?t - tower)
         (tower_not_complete ?t - tower)
-		(start_complete_tower ?t -tower)
+		(started_complete_tower ?t -tower)
     )
     
 	(:functions
