@@ -1,6 +1,6 @@
 ﻿(define (domain BLOCKS)
   (:requirements :strips :fluents)
-    (:predicates (on ?x ?y)
+	(:predicates (on ?x ?y)
         (tower_complete ?t)
 	       (ontable ?x)
 	       (clear ?x)
@@ -10,12 +10,6 @@
     )
     
 (:functions
-    (demand_chilled_goods ?c - location) ; customer’s remaining demand for
-    (demand_ambient_goods ?c - location) ; chilled/ambient goods
-    (free_capacity ?t - truck) ; unused capacity in truck
-    (distance ?l1 ?l2 - location) ; distance between locations
-    (per_km_cost ?t - truck) ; per-kilometer cost of truck
-    (total-cost)
     (tower-cost ?t)
 )
 
@@ -23,7 +17,7 @@
     :parameters (?t)
     :precondition (and (tower_complete ?t))
     :effect (and
-        (increase (tower-cost) 2)
+        (increase (tower-cost ?t) 2)
     )
 )
   (:action pick-up
