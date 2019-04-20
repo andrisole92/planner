@@ -9,6 +9,7 @@
     (ON A D)
     (HANDEMPTY)
     (tower_complete E)
+    (= (tower-cost E) 10)
     )
     (:goal (AND (ON D C) (ON C A) (ON A B)))
 )
