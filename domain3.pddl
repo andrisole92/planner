@@ -1,15 +1,26 @@
 ﻿(define (domain BLOCKS)
-    (:requirements :strips :fluents)
-  
-    (:predicates (on ?x ?y)
-	       (tower_ready ?t)
+  (:requirements :strips :fluents :typing)
+	(:predicates (on ?x ?y)
+        (tower_complete ?t)
+	       (ontable ?x)
 	       (clear ?x)
 	       (handempty)
 	       (holding ?x)
 	       
     )
+    
+(:functions
+    (tower-cost ?t)
+)
 
-    (:action pick-up
+(:action inc
+    :parameters (?t)
+    :precondition (and (tower_complete ?t))
+    :effect (and
+        (increase (tower-cost ?t) 2)
+    )
+)
+  (:action pick-up
 	     :parameters (?x)
 	     :precondition (and (clear ?x) (ontable ?x) (handempty))
 	     :effect
@@ -18,7 +29,7 @@
 		   (not (handempty))
 		   (holding ?x)))
 
-    (:action put-down
+  (:action put-down
 	     :parameters (?x)
 	     :precondition (holding ?x)
 	     :effect
@@ -26,7 +37,7 @@
 		   (clear ?x)
 		   (handempty)
 		   (ontable ?x)))
-    (:action stack
+  (:action stack
 	     :parameters (?x ?y)
 	     :precondition (and (holding ?x) (clear ?y))
 	     :effect
@@ -35,7 +46,7 @@
 		   (clear ?x)
 		   (handempty)
 		   (on ?x ?y)))
-    (:action unstack
+  (:action unstack
 	     :parameters (?x ?y)
 	     :precondition (and (on ?x ?y) (clear ?x) (handempty))
 	     :effect
