@@ -46,16 +46,5 @@
 		   (not (clear ?y))
 		   (clear ?x)
 		   (handempty)
-		   (on ?x ?y)))
-  (:action unstack
-	     :parameters (?x ?y)
-	     :precondition (and (on ?x ?y) (clear ?x) (handempty))
-	     :effect
-	     (and (holding ?x)
-		   (clear ?y)
-		   (not (clear ?x))
-		   (not (handempty))
-		   (not (on ?x ?y))))
-		   
-		   
+		   (on ?x ?y))) 
 )
