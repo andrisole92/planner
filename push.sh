@@ -1,3 +1,3 @@
 git add .
 git commit -m 't'
-giut push
+git push
