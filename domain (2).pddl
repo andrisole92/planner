@@ -8,7 +8,15 @@
 	       (holding ?x)
 	       
     )
-
+    
+(:functions
+    (demand_chilled_goods ?c - location) ; customer’s remaining demand for
+    (demand_ambient_goods ?c - location) ; chilled/ambient goods
+    (free_capacity ?t - truck) ; unused capacity in truck
+    (distance ?l1 ?l2 - location) ; distance between locations
+    (per_km_cost ?t - truck) ; per-kilometer cost of truck
+    (total-cost)
+)
   (:action pick-up
 	     :parameters (?x)
 	     :precondition (and (clear ?x) (ontable ?x) (handempty))
