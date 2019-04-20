@@ -16,6 +16,15 @@
     (distance ?l1 ?l2 - location) ; distance between locations
     (per_km_cost ?t - truck) ; per-kilometer cost of truck
     (total-cost)
+    (tower-cost ?t)
+)
+
+(:action inc
+    :parameters (?t)
+    :precondition (and (tower_complete ?t))
+    :effect (and
+        (increase (tower-cost) 2)
+    )
 )
   (:action pick-up
 	     :parameters (?x)
