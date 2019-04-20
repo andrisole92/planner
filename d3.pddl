@@ -1,5 +1,6 @@
 ﻿(define (domain BLOCKS)
   (:requirements :strips :fluents :typing)
+  (:types elevator passenger num - object)
 	(:predicates (on ?x ?y)
         (tower_complete ?t)
 	       (ontable ?x)
