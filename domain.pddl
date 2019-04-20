@@ -1,12 +1,12 @@
 ﻿(define (domain BLOCKS)
-  (:requirements :strips :fluents)
-    (:predicates (on ?x ?y)
+  	(:requirements :strips :fluents :typing)
+	(:types agent location stick plane cone tower capability)
+	(:predicates (on ?x ?y)
         (tower_complete ?t)
-	       (ontable ?x)
-	       (clear ?x)
-	       (handempty)
-	       (holding ?x)
-	       
+	    (ontable ?x)  
+		(clear ?x)
+	    (handempty)
+	    (holding ?x)     
     )
     
 (:functions
