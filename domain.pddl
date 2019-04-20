@@ -2,9 +2,7 @@
   (:requirements :strips :fluents :typing)
 	(:predicates 
         (tower_complete ?t)
-	    (handempty)
-	    (holding ?x)
-	       
+	    (holding ?x)      
     )
     
 (:functions
