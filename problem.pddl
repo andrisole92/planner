@@ -7,7 +7,7 @@
     )
     (:goal 
         (AND 
-            (>= (tower-cost E) 20)
+            (>= (tower-cost E) 80)
         )
     )
 )
