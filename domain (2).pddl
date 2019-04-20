@@ -1,6 +1,7 @@
 ﻿(define (domain BLOCKS)
   (:requirements :strips :fluents)
     (:predicates (on ?x ?y)
+        (tower_complete ?t)
 	       (ontable ?x)
 	       (clear ?x)
 	       (handempty)
