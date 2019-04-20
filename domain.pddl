@@ -17,7 +17,7 @@
     :parameters (?t)
     :precondition (and (tower_complete ?t))
     :effect (and
-        (increase (tower-cost) 2)
+        (increase (tower-cost ?t) 2)
     )
 )
   (:action pick-up
