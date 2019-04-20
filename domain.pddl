@@ -1,16 +1,25 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; 4 Op-blocks world
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(define (domain BLOCKS)
-  (:requirements :strips)
-  (:predicates (on ?x ?y)
+﻿(define (domain BLOCKS)
+  (:requirements :strips :fluents)
+    (:predicates (on ?x ?y)
+        (tower_complete ?t)
 	       (ontable ?x)
 	       (clear ?x)
 	       (handempty)
 	       (holding ?x)
-	       )
+	       
+    )
+    
+(:functions
+    (tower-cost ?t)
+)
 
+(:action inc
+    :parameters (?t)
+    :precondition (and (tower_complete ?t))
+    :effect (and
+        (increase (tower-cost) 2)
+    )
+)
   (:action pick-up
 	     :parameters (?x)
 	     :precondition (and (clear ?x) (ontable ?x) (handempty))
@@ -45,4 +54,7 @@
 		   (clear ?y)
 		   (not (clear ?x))
 		   (not (handempty))
-		   (not (on ?x ?y)))))
+		   (not (on ?x ?y))))
+		   
+		   
+)
