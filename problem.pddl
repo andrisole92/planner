@@ -1,7 +1,8 @@
 (define (problem BLOCKS-4-1)
     (:domain BLOCKS)
-    (:objects A C D B E)
+    (:objects E)
     (:init 
+        (tower_complete E)
         (= (tower-cost E) 10)
     )
     (:goal 
