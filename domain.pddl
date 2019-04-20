@@ -5,18 +5,24 @@
 	)
 	(:predicates 
         (tower_complete ?t - tower)
+        (tower_not_complete ?t - tower)
     )
     
-(:functions
-    (tower-cost ?t - tower)
-)
+	(:functions
+    	(tower-cost ?t - tower)
+	)
 
-(:action inc
-    :parameters (?t - tower)
-    :precondition (and (tower_complete ?t))
-    :effect (and
-        (increase (tower-cost ?t) 2)
-    )
-)
-
+	(:action inc
+    	:parameters (?t - tower)
+    	:precondition (and (tower_complete ?t))
+    	:effect (and
+    	    (increase (tower-cost ?t) 2)
+    	)
+	)
+	(:action start_complete_tower
+		:parameters (?t - tower)
+		:precondition (and (tower_not_complete ?t))
+		:effect (and (tower_complete ?t))
+	)
+	
 )

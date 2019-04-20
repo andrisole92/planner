@@ -2,11 +2,11 @@
     (:domain BLOCKS)
     (:objects E - tower)
     (:init 
-        (tower_complete E)
+        (tower_not_complete E)
         (= (tower-cost E) 10)
     )
     (:goal 
-        (AND 
+        (and 
             (>= (tower-cost E) 80)
         )
     )
