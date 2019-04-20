@@ -1,11 +1,12 @@
 ﻿(define (domain BLOCKS)
-  	(:requirements :strips :fluents)
+  (:requirements :strips :fluents)
 	(:predicates (on ?x ?y)
         (tower_complete ?t)
-	    (ontable ?x)  
-		(clear ?x)
-	    (handempty)
-	    (holding ?x)     
+	       (ontable ?x)
+	       (clear ?x)
+	       (handempty)
+	       (holding ?x)
+	       
     )
     
 (:functions
