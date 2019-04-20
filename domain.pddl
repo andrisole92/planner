@@ -7,11 +7,11 @@
         (tower_complete ?t - tower)
         (tower_not_complete ?t - tower)
 		(started_complete_tower ?t -tower)
-		(bricks_on_level ?t -tower)
     )
     
 	(:functions
     	(tower-cost ?t - tower)
+		(bricks_on_level ?t - tower)
 	)
 
 	(:action inc
