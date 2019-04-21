@@ -8,6 +8,7 @@
 			(cone_installed ?t - tower)
       (tower_not_complete ?t - tower)
 			(started_complete_tower ?t -tower)
+			(start_install_level ?t -tower)
 			(started_install_brick ?t -tower)
   )
     
@@ -26,6 +27,7 @@
     	    (increase (tower-cost ?t) 2)
     	)
 	)
+
 	(:action start_complete_tower
 		:parameters (?t - tower)
 		:precondition (and 
@@ -65,12 +67,14 @@
 			(decrease (free_agents) 2)
 		)
 	)
+
 	(:action end_install_brick
 			:parameters (?t - tower)
 			:precondition (and
 				(> (bricks_in_process ?t) 0)
 			)
 			:effect (and 
+				(decrease (bricks_in_process ?t) 1)
 				(increase (bricks_on_level ?t) 1)
 				(increase (free_agents) 2)
 			)
@@ -88,6 +92,15 @@
 				(assign (bricks_on_level ?t) 0)
 			)
 	)
+
+	(:action end_install_brick
+			:parameters (?t - tower)
+			:precondition (and 
+				()
+			)
+			:effect (and )
+	)
+	
 
 
 	(:action start_install_cone
