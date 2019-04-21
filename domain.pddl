@@ -15,6 +15,7 @@
     	(tower-cost ?t - tower)
 			(bricks_on_level ?t - tower)
 			(levels_on_tower ?t - tower)
+			(bricks_in_process ?t - tower)
 			(free_agents)
 	)
 
@@ -60,14 +61,17 @@
 			(< (bricks_on_level ?t) 4)
 		)
 		:effect (and 
-			(increase (bricks_on_level ?t) 1)
+			(increase (bricks_in_process ?t) 1)
 			(decrease (free_agents) 2)
 		)
 	)
 	(:action end_install_brick
 			:parameters (?t - tower)
-			:precondition ()
+			:precondition (and
+				(decrease (bricks_in_process ?t) 1)
+			)
 			:effect (and 
+				(increase (bricks_on_level ?t) 1)
 				(increase (free_agents) 2)
 			)
 	)

@@ -5,6 +5,7 @@
         (tower_not_complete E)
         (= (bricks_on_level E) 0)
         (= (levels_on_tower E) 0)
+        (= (bricks_in_process E) 0)
         (tower_not_complete C)
         (= (bricks_on_level C) 0)
         (= (levels_on_tower C) 0)
