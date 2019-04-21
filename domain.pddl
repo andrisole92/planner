@@ -8,6 +8,7 @@
 			(cone_installed ?t - tower)
       (tower_not_complete ?t - tower)
 			(started_complete_tower ?t -tower)
+			(started_install_brick ?t -tower)
   )
     
 	(:functions
@@ -59,8 +60,17 @@
 		)
 		:effect (and 
 			(increase (bricks_on_level ?t) 1)
+			(decrease (free_agents) 2)
 		)
 	)
+	(:action end_install_brick
+			:parameters (?t - tower)
+			:precondition ()
+			:effect (and 
+				(increase (free_agents) 2)
+			)
+	)
+	
 
 	(:action start_install_level
 			:parameters (?t - tower)
