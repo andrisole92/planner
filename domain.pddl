@@ -4,15 +4,16 @@
 		tower agent brick level cone - object
 	)
 	(:predicates 
-        (tower_complete ?t - tower)
-        (tower_not_complete ?t - tower)
-		(started_complete_tower ?t -tower)
-    )
+      (tower_complete ?t - tower)
+      (tower_not_complete ?t - tower)
+			(started_complete_tower ?t -tower)
+  )
     
 	(:functions
     	(tower-cost ?t - tower)
-		(bricks_on_level ?t - tower)
-		(free_agents)
+			(bricks_on_level ?t - tower)
+			(levels_on_tower ?t - tower)
+			(free_agents)
 	)
 
 	(:action inc
@@ -49,7 +50,6 @@
 		:effect (and (increase (free_agents) 1))
 	)
 	
-
 	(:action start_install_brick
 		:parameters (?t - tower)
 		:precondition (and 
@@ -60,4 +60,17 @@
 			(increase (bricks_on_level ?t) 1)
 		)
 	)
+
+	(:action start_install_level
+			:parameters (?t - tower)
+			:precondition (and 
+				(tower_not_complete ?t - tower)
+				(= (bricks_on_level ?t) 4)
+			)
+			:effect (and 
+				(increase (levels_on_tower ?t) 1)
+				(assign (bricks_on_level ?t) 0)
+			)
+	)
+	
 )
