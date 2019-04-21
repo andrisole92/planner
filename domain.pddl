@@ -64,7 +64,7 @@
 	(:action start_install_level
 			:parameters (?t - tower)
 			:precondition (and 
-				(tower_not_complete ?t - tower)
+				(tower_not_complete ?t)
 				(= (bricks_on_level ?t) 4)
 			)
 			:effect (and 
