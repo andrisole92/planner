@@ -24,7 +24,10 @@
 	)
 	(:action start_complete_tower
 		:parameters (?t - tower)
-		:precondition (and (tower_not_complete ?t))
+		:precondition (and 
+			(tower_not_complete ?t)
+			(= (bricks_on_level ?t) 4)
+		)
 		:effect (and 
 			(started_complete_tower ?t)
 			(decrease (free_agents) 2)
