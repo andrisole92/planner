@@ -25,14 +25,27 @@
 	(:action start_complete_tower
 		:parameters (?t - tower)
 		:precondition (and (tower_not_complete ?t))
-		:effect (and (started_complete_tower ?t))
+		:effect (and 
+			(started_complete_tower ?t)
+			(decrease (free_agents) 2)
+		)
 	)
 
 	(:action end_complete_tower
 		:parameters (?t - tower)
 		:precondition (and (started_complete_tower ?t))
-		:effect (and (tower_complete ?t))
+		:effect (and 
+			(tower_complete ?t)
+			(increase (free_agents) 2)
+		)
 	)
+
+	(:action releaseAgent
+		:parameters ()
+		:precondition (and (< (free_agents) 10))
+		:effect (and (increase (free_agents) 1))
+	)
+	
 
 	(:action start_install_brick
 		:parameters (?t - tower)
