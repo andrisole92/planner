@@ -13,7 +13,7 @@
             (tower_complete E)
             (>= (tower-cost E) 12)
             (= (free_agents) 10)
-            (= (levels_on_tower E) 1)
+            (= (levels_on_tower E) 12)
         )
     )
 )
