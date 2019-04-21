@@ -67,7 +67,9 @@
 	)
 	(:action end_install_brick
 			:parameters (?t - tower)
-			:precondition ()
+			:precondition (and
+				(> (bricks_in_process ?t) 0)
+			)
 			:effect (and 
 				(increase (bricks_on_level ?t) 1)
 				(increase (free_agents) 2)
