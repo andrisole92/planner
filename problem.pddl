@@ -10,6 +10,7 @@
     )
     (:goal 
         (and 
+            (tower_complete ?t)
             (>= (tower-cost E) 12)
             (= (free_agents) 10)
         )
