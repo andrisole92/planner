@@ -55,6 +55,7 @@
 	(:action start_install_brick
 		:parameters (?t - tower)
 		:precondition (and 
+			(> (free_agents) 2)
 			(tower_not_complete ?t)
 			(< (bricks_on_level ?t) 4)
 		)

@@ -14,11 +14,8 @@
     (:goal 
         (and 
             (tower_complete E)
-            (tower_complete C)
-            (>= (tower-cost E) 12)
             (= (free_agents) 10)
-            (= (levels_on_tower E) 12)
-            (= (levels_on_tower C) 3)
+            (= (levels_on_tower E) 2)
         )
     )
 )
