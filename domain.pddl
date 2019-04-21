@@ -1,10 +1,11 @@
 ﻿(define (domain BLOCKS)
   	(:requirements :strips :fluents :typing)
   	(:types
-		tower agent brick level cone - object
-	)
+			tower agent brick level cone - object
+		)
 	(:predicates 
       (tower_complete ?t - tower)
+			(cone_installed ?t - tower)
       (tower_not_complete ?t - tower)
 			(started_complete_tower ?t -tower)
   )
@@ -27,7 +28,7 @@
 		:parameters (?t - tower)
 		:precondition (and 
 			(tower_not_complete ?t)
-			(= (bricks_on_level ?t) 4)
+			(cone_installed ?t)
 		)
 		:effect (and 
 			(started_complete_tower ?t)
@@ -69,6 +70,19 @@
 			)
 			:effect (and 
 				(increase (levels_on_tower ?t) 1)
+				(assign (bricks_on_level ?t) 0)
+			)
+	)
+
+
+	(:action start_install_cone
+			:parameters (?t - tower)
+			:precondition (and 
+				(tower_not_complete ?t)
+				(= (bricks_on_level ?t) 4)
+			)
+			:effect (and 
+				(cone_installed ?t)
 				(assign (bricks_on_level ?t) 0)
 			)
 	)
