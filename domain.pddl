@@ -33,7 +33,6 @@
 		:precondition (and 
 			(tower_not_complete ?t)
 			(cone_installed ?t)
-			(= (levels_on_tower ?t) 0)
 		)
 		:effect (and 
 			(started_complete_tower ?t)
@@ -111,6 +110,7 @@
 			:parameters (?t - tower)
 			:precondition (and 
 				(tower_not_complete ?t)
+				(= (levels_on_tower ?t) 0)
 				(= (bricks_on_level ?t) 4)
 			)
 			:effect (and 
