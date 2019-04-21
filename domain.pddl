@@ -88,17 +88,20 @@
 				(= (bricks_on_level ?t) 4)
 			)
 			:effect (and 
-				(increase (levels_on_tower ?t) 1)
+				(start_install_level ?t)
 				(assign (bricks_on_level ?t) 0)
 			)
 	)
 
-	(:action end_install_brick
+	(:action end_install_level
 			:parameters (?t - tower)
 			:precondition (and 
-				()
+				(start_install_level ?t)
 			)
-			:effect (and )
+			:effect (and 
+				(increase (levels_on_tower ?t) 1)
+				(not (start_install_level ?t))
+			)
 	)
 	
 
