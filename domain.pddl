@@ -33,6 +33,7 @@
 		:precondition (and 
 			(tower_not_complete ?t)
 			(cone_installed ?t)
+			(= (levels_on_tower ?t) 0)
 		)
 		:effect (and 
 			(started_complete_tower ?t)
@@ -99,7 +100,7 @@
 				(start_install_level ?t)
 			)
 			:effect (and 
-				(increase (levels_on_tower ?t) 1)
+				(decrease (levels_on_tower ?t) 1)
 				(not (start_install_level ?t))
 			)
 	)
