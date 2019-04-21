@@ -10,6 +10,7 @@
 			(started_complete_tower ?t -tower)
 			(start_install_level ?t -tower)
 			(started_install_brick ?t -tower)
+			(started_install_cone ?t -tower)
   )
     
 	(:functions
@@ -114,8 +115,18 @@
 				(= (bricks_on_level ?t) 4)
 			)
 			:effect (and 
-				(cone_installed ?t)
+				(started_install_cone ?t)				
 				(assign (bricks_on_level ?t) 0)
+			)
+	)
+	
+	(:action end_install_cone
+			:parameters (?t - tower)
+			:precondition (and 
+				(start_install_cone ?t)
+			)
+			:effect (and 
+				(cone_installed ?t)
 			)
 	)
 	
