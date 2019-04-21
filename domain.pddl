@@ -12,6 +12,7 @@
 	(:functions
     	(tower-cost ?t - tower)
 		(bricks_on_level ?t - tower)
+		(free_agents)
 	)
 
 	(:action inc
